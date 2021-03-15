@@ -1,0 +1,5 @@
+smtpserver_host=smtp.gmail.com
+smtpserver_port=465
+username=myzomatorestaurantfinder
+password=Password@123	
+from_email=myzomatorestaurantfinder@gmail.com

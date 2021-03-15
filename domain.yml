@@ -1,0 +1,156 @@
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- ask_budget
+- ask_email
+- restaurant_search
+- deny
+- affirm
+- goodbye
+- out_of_scope
+- thanks
+entities:
+- budget
+- cuisine
+- email
+- location
+slots:
+  budget:
+    type: text
+    influence_conversation: true
+  cuisine:
+    type: text
+    influence_conversation: true
+  cuisine_validity:
+    type: categorical
+    influence_conversation: true
+    values:
+    - valid
+    - invalid
+    - __other__
+  email:
+    type: text
+    influence_conversation: true
+  email_message:
+    type: text
+    influence_conversation: true
+  location:
+    type: text
+    influence_conversation: true
+  location_validity:
+    type: categorical
+    influence_conversation: true
+    values:
+    - valid
+    - invalid
+    - __other__
+  search_validity:
+    type: categorical
+    influence_conversation: true
+    values:
+    - valid
+    - invalid
+    - __other__
+responses:
+  utter_ask_budget:
+  - buttons:
+    - payload: Lesser than Rs. 300
+      title: Lesser than Rs. 300
+    - payload: Rs. 300 to 700
+      title: Rs. 300 to 700
+    - payload: More than Rs. 700
+      title: More than Rs. 700
+    text: What would be your preferred budget for two?
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: what kind of cuisine would you like?
+  utter_ask_cuisine_retry:
+  - text: Please try some other cuisine?
+  - text: I can help you with some other cuisine. Please type another cuisine?
+  utter_ask_details:
+  - text: Would you like me to send an email with details of the restaurants?
+  - text: I can send you an email with the restaurant details. Would you like me to?
+  utter_searching:
+  - text: Searching. Please wait...
+  utter_ask_email:
+  - text: Please provide your email id.
+  utter_ask_location:
+  - text: Which city would you like to get the details of?
+  - text: In what location?
+  - text: Which city are you looking for?
+  - text: Can you tell me the location you are looking for?
+  utter_ask_location_retry:
+  - text: Please try some other location?
+  - text: I can help you look for a restaurant at some other location. Please retry?
+  utter_bye:
+  - text: See you again!
+  - text: goodbye, hope i was of help today
+  - text: Bye-bye
+  - text: Bye!
+  utter_confirm_email:
+  - text: An email has been sent to you.
+  utter_cuisine_invalid:
+  - text: Sorry. We do not serve the requested cuisine.
+  utter_default:
+  - text: text:I cannot understand
+  utter_deny:
+  - text: Sorry, hope to serve you better next time.
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_greet:
+  - text: Hey there! How can i help you today?
+  - text: Howdy! I can help you with?
+  - text: Hello! How can i help you?
+  - text: Hi there! How can i help you?
+  utter_happy:
+  - text: Great carry on!
+  utter_location_invalid:
+  - text: Sorry, we do not serve at the requested location.
+  utter_out_of_scope:
+  - text: Sorry, I do not understand this. Please be specific.
+  utter_search_invalid:
+  - text: Sorry, we do not have any restaurants which match your requirements. Hope to serve you better next time!
+  utter_thanks_response:
+  - text: You are welcome!
+  - text: You are most welcome! Is there anything else that i can help you with?
+actions:
+- action_cuisine_valid
+- action_location_valid
+- action_restart
+- action_restaurant_search
+- action_send_email
+- action_slot_reset
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_cuisine_retry
+- utter_ask_details
+- utter_ask_email
+- utter_ask_location
+- utter_ask_location_retry
+- utter_bye
+- utter_confirm_email
+- utter_cuisine_invalid
+- utter_deny
+- utter_did_that_help
+- utter_greet
+- utter_happy
+- utter_location_invalid
+- utter_out_of_scope
+- utter_search_invalid
+- utter_searching
+- utter_thanks_response
+version: '2.0'
